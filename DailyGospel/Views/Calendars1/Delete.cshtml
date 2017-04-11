@@ -1,0 +1,64 @@
+﻿@model DailyGospel.Models.Calendar
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Calendar</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameMass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameMass)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstReading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondReading)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondReading)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gospel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gospel)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
