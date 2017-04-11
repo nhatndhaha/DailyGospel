@@ -33,12 +33,7 @@ namespace DailyGospel.Models
             return new ApplicationDbContext();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
-            base.OnModelCreating(modelBuilder);
-        }
-
+        
         public System.Data.Entity.DbSet<DailyGospel.Models.Calendar> Calendars { get; set; }
     }
 }
