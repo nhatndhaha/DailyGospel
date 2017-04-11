@@ -1,8 +1,10 @@
-﻿using System.Security.Claims;
+﻿using System.Data.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Configuration;
 
 namespace DailyGospel.Models
 {
@@ -25,9 +27,16 @@ namespace DailyGospel.Models
         {
         }
         
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<ApplicationDbContext>(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+            base.OnModelCreating(modelBuilder);
         }
 
         public System.Data.Entity.DbSet<DailyGospel.Models.Calendar> Calendars { get; set; }
